@@ -2,9 +2,6 @@
     $open = "product";
     require_once __DIR__. "/../../autoload/autoload.php";
 
-    /*
-    * Danh sách danh mục sản phẩm
-    */
         $category = $db->fetchAll("category");
 
         if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -12,7 +9,6 @@
             $data = 
             [
                 "name" => postInput('name'),
-                "slug" => to_slug(postInput('name')),
                 "category_id" => postInput('category_id'),
                 "price" => postInput('price'),
                 "number" => postInput('number'),
@@ -51,7 +47,7 @@
                 if (isset($_FILES['thumbar'])) 
                 {
                     $file_name = $_FILES['thumbar']['name'];
-                    $file_tmp = $_FILES['thumbar']['tmp_name'];
+                    $file_tmp = $_FILES['thumbar']['tmp_name']; //Đường dẫn tạm của file trên server
                     $file_type = $_FILES['thumbar']['type'];
                     $file_erro = $_FILES['thumbar']['error'];
                     if ($file_erro == 0) 
@@ -76,7 +72,7 @@
         }
 ?>
 <?php require_once __DIR__. "/../../layouts/header.php"; ?>
-    <!-- Page Heading -->
+
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
@@ -84,7 +80,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <i class="fa fa-dashboard"></i>  <a href="index.html">Bảng điều khiển</a>
+                    <i class="fa fa-dashboard"></i>  <a href="/webphp/adminBE/">Bảng điều khiển</a>
                 </li>
                 <li>
                     <i class="fa fa-file"></i> Sản phẩm
@@ -98,7 +94,7 @@
             <?php require_once __DIR__. "/../../../partials/notification.php"; ?>
         </div>
     </div>
-    <!-- /.row -->
+
     <div class="row">
         <div class="col-md-12">
             <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">

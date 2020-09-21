@@ -7,7 +7,6 @@
             $data = 
             [
                 "name" => postInput('name'),
-                "slug" => to_slug(postInput('name'))
             ];
             $error = [];
             if(postInput('name') == '')
@@ -38,7 +37,7 @@
         }
 ?>
 <?php require_once __DIR__. "/../../layouts/header.php"; ?>
-    <!-- Page Heading -->
+
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
@@ -46,7 +45,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                    <i class="fa fa-dashboard"></i>  <a href="/webphp/adminBE/">Dashboard</a>
                 </li>
                 <li>
                     <i class="fa fa-file"></i> Danh mục
@@ -60,7 +59,7 @@
             <?php require_once __DIR__. "/../../../partials/notification.php"; ?>
         </div>
     </div>
-    <!-- /.row -->
+
     <div class="row">
         <div class="col-md-12">
             <form class="form-horizontal" action="" method="POST">

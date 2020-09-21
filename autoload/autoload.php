@@ -21,7 +21,7 @@
     $sqlSale = "SELECT * FROM product WHERE 1 ORDER BY Sale DESC LIMIT 4";
     $productSale = $db->fetchsql($sqlSale);
 
-    //Sp bán chạy
-    // $sqlPay = "SELECT * FROM product WHERE 1 ORDER BY PAY DESC LIMIT 4";
-    // $productPay = $db->fetchsql($sqlPay);
+    // Sp bán chạy
+    $sqlPay = "SELECT * FROM product WHERE 1 ORDER BY PAY DESC LIMIT 4";
+    $productPay = $db->fetchsql($sqlPay);
 ?>

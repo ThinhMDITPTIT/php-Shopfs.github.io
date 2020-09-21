@@ -2,11 +2,9 @@
     $open = "admin";
     require_once __DIR__. "/../../autoload/autoload.php";
 
-    /*
-    * Danh sách danh mục sản phẩm
-    */
+
         $id = intval(getInput('id'));
-        // _debug($id);
+
         $Editadmin = $db->fetchID('admin',$id);
         if (empty($Editadmin)) 
         {
@@ -73,10 +71,10 @@
                     $data['password'] = MD5(postInput('password'));
                 }
             } 
-            //error trống => không có lỗi
+
             if(empty($error))
             {
-                //Kiểm tra đã tồn tại tên danh mục chưa
+                //Kiểm tra đã tồn tại tên chưa
                 if ($Editadmin['name'] != $data[name]) 
                 {
                     $isset = $db->fetchOne("admin"," name = '".$data['name']."' ");
@@ -119,7 +117,7 @@
 
 <?php require_once __DIR__. "/../../layouts/header.php"; ?>
 
-    <!-- Page Heading -->
+
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
@@ -127,7 +125,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <i class="fa fa-dashboard"></i>  <a href="index.html">Bảng điều khiển</a>
+                    <i class="fa fa-dashboard"></i>  <a href="/webphp/adminBE/">Bảng điều khiển</a>
                 </li>
                 <li>
                     <i class="fa fa-file"></i> Quản trị viên
@@ -141,7 +139,7 @@
             <?php require_once __DIR__. "/../../../partials/notification.php"; ?>
         </div>
     </div>
-    <!-- /.row -->
+
     <div class="row">
         <div class="col-md-12">
             <form class="form-horizontal" action="" method="POST">

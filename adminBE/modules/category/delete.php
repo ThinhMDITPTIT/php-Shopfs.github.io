@@ -3,7 +3,7 @@
     require_once __DIR__. "/../../autoload/autoload.php";
 
         $id = intval(getInput('id'));
-        // _debug($id);
+
         $EditCategory = $db->fetchID('category',$id);
         if (empty($EditCategory)) 
         {

@@ -3,7 +3,7 @@
     require_once __DIR__. "/../../autoload/autoload.php";
 
         $id = intval(getInput('id'));
-        // _debug($id);
+
         $Editproduct = $db->fetchID('product',$id);
         if (empty($Editproduct)) 
         {
@@ -11,9 +11,7 @@
             redirectAdmin('product');
         }
 
-        /**
-        *   Kiểm tra xem danh mục có sản phẩm chưa?
-        */
+
         $num = $db->delete('product',$id);
         if ($num > 0) 
         {

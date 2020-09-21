@@ -7,6 +7,8 @@
 
     //Lấy danh mục sp
     $cateid = intval($product["category_id"]);
+
+    //Lấy sản phẩm tương tự
     $sql = " SELECT * FROM  product WHERE category_id = $cateid ORDER BY ID DESC LIMIT 4";
     $spkemtheo = $db->fetchsql($sql);
 
@@ -18,22 +20,6 @@
 	    <section class="box-main1" >
 	        <div class="col-md-6 text-center">
 	            <img src="<?php echo uploads() ?>product/<?php echo $product['thumbar'] ?>" class="img-responsive bor" id="imgmain" width="100%" height="370" data-zoom-image="images/16-270x270.png">
-	            
-	            <ul class="text-center bor clearfix" id="imgdetail">
-	                <li>
-	                    <img src="<?php echo uploads() ?>product/<?php echo $product['thumbar'] ?>" class="img-responsive pull-left" width="80" height="80">
-	                </li>
-	                <li>
-	                    <img src="<?php echo uploads() ?>product/<?php echo $product['thumbar'] ?>" class="img-responsive pull-left" width="80" height="80">
-	                </li>
-	                <li>
-	                    <img src="<?php echo uploads() ?>product/<?php echo $product['thumbar'] ?>" class="img-responsive pull-left" width="80" height="80">
-	                </li>
-	                <li>
-	                    <img src="<?php echo uploads() ?>product/<?php echo $product['thumbar'] ?>" class="img-responsive pull-left" width="80" height="80">
-	                </li>
-	               
-	            </ul>
 	        </div>
 	        <div class="col-md-6 bor" style="margin-top: 20px;padding: 30px;">
 	           <ul id="right">
@@ -55,7 +41,7 @@
                             <br>
 	                	</li>
 	                <?php endif ?>
-	                <li><a href="" class="btn btn-default"> <i class="fa fa-shopping-basket"></i>Thêm vào giỏ hàng</a></li>
+	                <li><a href="addcart.php?id=<?php echo $product['id'] ?>" class="btn btn-default">Thêm vào giỏ hàng</a></li>
 	           </ul>
 	        </div>
 

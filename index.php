@@ -1,8 +1,7 @@
 <?php 
     require_once __DIR__. "/autoload/autoload.php";
 
-    // _debug($_SESSION['name_user']);
-    //lấy tên danh mục
+    //lấy tên danh mục có hiển thị home = 1
     $sqlHomecate = "SELECT name, id FROM category WHERE home = 1 ORDER BY update_at";
     $CategoryHome = $db->fetchsql($sqlHomecate);
 
@@ -39,6 +38,10 @@
                                                 <div class="info-item">
                                                     <a href="chi-tiet-san-pham.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?></a>
                                                     <p><strike class="sale"><?php echo formatPrice($item['price']) ?></strike> <b class="price"><?php echo formatPriceSale($item['price'],$item['sale']) ?></b></p>
+                                                </div>
+                                                <div class="hidenitem">
+                                                    <p><a href="chi-tiet-san-pham.php?id=<?php echo $item['id'] ?>"><i class="fa fa-search"></i></a></p>
+                                                    <p><a href="addcart.php?id=<?php echo $item['id'] ?>"><i class="fa fa-shopping-basket"></i></a></p>
                                                 </div>
                                             </div>
                                         <?php endforeach ?>

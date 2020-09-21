@@ -81,7 +81,7 @@
             <div class="wrap-login100">
                 <form class="login100-form validate-form" action="" method="POST">
                     <span class="login100-form-title p-b-34">
-                        Account Login
+                        Đăng nhập tài khoản
                     </span>
                     
                     <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
@@ -95,7 +95,7 @@
                     
                     <div class="container-login100-form-btn">
                         <button class="login100-form-btn">
-                            Sign in
+                            Đăng nhập
                         </button>
                     </div>
 

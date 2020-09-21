@@ -40,19 +40,6 @@
                 {
                     $_SESSION['error'] = 'Đăng nhập thất bại!';
                 }
-
-                // $id_insert = $db->insert("users",$data);
-                // if ($id_insert) 
-                // {
-                //     $_SESSION['success'] = "Đăng ký thành công! Mời bạn đăng nhập";
-                //     // redirectAdmin("user");
-                //     header("location: login.php");
-                // }
-                // else
-                // {
-                //     // $_SESSION['error'] = "Thêm mới thất bại";
-                //     // redirectAdmin("user");
-                // }
             }
     }
 ?>
@@ -62,23 +49,10 @@
                     <div class="col-md-9 bor">
                         <section class="box-main1">
                             <h3 class="title-main"><a href=""> Đăng nhập</a> </h3>
-                            <?php if (isset($_SESSION['success'])): ?>
-                                <div class="alert alert-success" role="alert">
-                                    <?php 
-                                        echo $_SESSION['success'];
-                                        unset($_SESSION['success'])
-                                    ?>
-                                </div>
-                            <?php endif ?>
-                            <?php if (isset($_SESSION['error'])): ?>
-                                <div class="alert alert-danger" role="alert">
-                                    <?php 
-                                        echo $_SESSION['error'];
-                                        unset($_SESSION['error'])
-                                    ?>
-                                </div>
-                            <?php endif ?>
-                            <!-- Nội dung -->
+
+                            <!-- Thông báo lỗi -->
+                            <?php require_once __DIR__. "/partials/notification.php"; ?>
+
                             <form action="" method="POST" class="form-horizontal" role="form" style="margin-top: 20px">
                             	<div class="form-group">
                             		<label class="col-md-3 control-label">Email</label>

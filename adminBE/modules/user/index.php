@@ -2,26 +2,12 @@
     $open = "user";
     require_once __DIR__. "/../../autoload/autoload.php";
 
-    if (isset($_GET['page'])) 
-    {
-        $p = $_GET['page'];
-    }
-    else
-    {
-        $p = 1;
-    }
-
     $sql = "SELECT users.* FROM users ORDER BY ID DESC";
-    $user = $db->fetchJone('users',$sql,$p,5,true);
+    $user = $db->fetchsql($sql);
 
-    if (isset($user['page'])) 
-    {
-        $sotrang = $user['page'];
-        unset($user['page']);
-    }
 ?>
 <?php require_once __DIR__. "/../../layouts/header.php"; ?>
-    <!-- Page Heading -->
+
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
@@ -29,7 +15,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <i class="fa fa-dashboard"></i>  <a href="index.html">Bảng điều khiển</a>
+                    <i class="fa fa-dashboard"></i>  <a href="/webphp/adminBE/">Bảng điều khiển</a>
                 </li>
                 <li class="active">
                     <i class="fa fa-file"></i> Thành viên
@@ -40,7 +26,7 @@
             <?php require_once __DIR__. "/../../../partials/notification.php"; ?>
         </div>
     </div>
-    <!-- /.row -->
+
     <div class="row">
         <div class="col-md-12">
             <div class="table-responsive">
@@ -72,37 +58,7 @@
                         <?php $stt++; endforeach ?>
                     </tbody>
                 </table>
-                <div class="pull-right">
-                    <nav aria-label="Page navigation example" class="clearfix">
-                        <ul class="pagination">
-                            <!-- <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li> -->
-                            <?php for ($i=1; $i <= $sotrang ; $i++):?>
-                                <?php 
-                                    if (isset($_GET['page'])) 
-                                    {
-                                        $p = $_GET['page'];
-                                    } 
-                                    else
-                                    {
-                                        $p = 1;
-                                    }
-                                ?>
-                                <li class="<?php echo ($i == $p) ? 'active' : ''?>">
-                                    <a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
-                                </li>
-                            <?php endfor; ?>
-                            <!-- <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li> -->
-                        </ul>
-                    </nav>
-                </div>
+
             </div>
         </div>
     </div>  

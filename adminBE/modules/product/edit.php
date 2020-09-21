@@ -2,11 +2,9 @@
     $open = "category";
     require_once __DIR__. "/../../autoload/autoload.php";
 
-    /*
-    * Danh sách danh mục sản phẩm
-    */
+
         $id = intval(getInput('id'));
-        // _debug($id);
+
         $Editproduct = $db->fetchID('product',$id);
         if (empty($Editproduct)) 
         {
@@ -21,7 +19,6 @@
             $data = 
             [
                 "name" => postInput('name'),
-                "slug" => to_slug(postInput('name')),
                 "category_id" => postInput('category_id'),
                 "price" => postInput('price'),
                 "number" => postInput('number'),
@@ -75,7 +72,7 @@
                 }
                 else
                 {
-                    $_SESSION['error'] = "Cập nhật thất bại";
+                    $_SESSION['error'] = "Dữ liệu không thay đổi";
                     redirectAdmin("product");
                 }
             }
@@ -84,7 +81,7 @@
 
 <?php require_once __DIR__. "/../../layouts/header.php"; ?>
 
-    <!-- Page Heading -->
+
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
@@ -92,7 +89,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <i class="fa fa-dashboard"></i>  <a href="index.html">Bảng điều khiển</a>
+                    <i class="fa fa-dashboard"></i>  <a href="/webphp/adminBE/">Bảng điều khiển</a>
                 </li>
                 <li>
                     <i class="fa fa-file"></i> Sản phẩm
@@ -106,7 +103,7 @@
             <?php require_once __DIR__. "/../../../partials/notification.php"; ?>
         </div>
     </div>
-    <!-- /.row -->
+
     <div class="row">
         <div class="col-md-12">
             <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
